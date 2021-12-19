@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  redis:
+    container_name: cluster-redis
+    image: redis:6.2
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./src/log/redis/:/data/redis/
+    ports:
+      - 6379:6379
+    restart: always
+
+  # updater:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: cluster-updater
+  #   volumes:
+  #     - ./src/log:/home/updater/log
+  #   restart: always
+

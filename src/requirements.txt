@@ -1,0 +1,6 @@
+python-decouple
+pandas
+matplotlib
+seaborn
+PyMySQL
+redis
