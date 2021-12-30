@@ -25,6 +25,8 @@ def connect_redis():
 
     return r
 
+REDIS_CLIENT = connect_redis()
+
 def fetch_data():
     print('Fetching data...')
     conn = connect_mysql()
@@ -40,13 +42,12 @@ def fetch_data():
 
 def push_data(data: dict):
     print('Pushing data...')
-    r_client = connect_redis()
 
     for k, v in data.items():
         json_data = json.dumps(v)
-        r_client.set(k, json_data)
+        REDIS_CLIENT.set(k, json_data)
     # r_client.set('test', 'test')
-    print(r_client.get('7de791e4-19fd-1f90-f5e4-cbefc3792353'))
+    print(REDIS_CLIENT.get('7de791e4-19fd-1f90-f5e4-cbefc3792353'))
 
 if __name__ == '__main__':
     fetch_data()
