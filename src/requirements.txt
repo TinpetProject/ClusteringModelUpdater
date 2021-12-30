@@ -4,3 +4,5 @@ matplotlib
 seaborn
 PyMySQL
 redis
+scikit-learn==1.0.1
+joblib==1.1.0

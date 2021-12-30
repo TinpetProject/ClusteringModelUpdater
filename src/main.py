@@ -1,13 +1,15 @@
 import time
-from data_fetcher.fetcher import fetch_data, push_data
+from data_handler.fetcher import fetch_data, push_data
+from data_handler.preprocessor import preprocess_data
 from trainer.trainer import train_model
 from params import *
 from multiprocessing import Process
 
 def train():
-    # fetch_data()
-    # train_model()
-    push_data()
+    fetch_data()
+    preprocess_data()
+    data = train_model()
+    push_data(data)
 
 def predict_new_pet():
     print('Predicting new pet...')
@@ -47,4 +49,10 @@ def test_dataset():
 
 if __name__ == '__main__':
     # test_data()
-    main()
+    # main()
+    # train()
+    # preprocess_data()
+    dat = train_model()
+    # for k, v in dat.items():
+    #     print(k)
+    print(len(dat.keys()))

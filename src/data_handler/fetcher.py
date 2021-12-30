@@ -26,19 +26,24 @@ def connect_redis():
 
 def fetch_data():
     print('Fetching data...')
-    # conn = connect_mysql()
+    conn = connect_mysql()
 
-    # with conn.cursor() as cursor:
-    #     sql = 'SELECT * FROM `Pet` LIMIT 5'
-    #     cursor.execute(sql)
-    #     result = cursor.fetchall()
-    #     print(result)
+    with conn.cursor() as cursor:
+        sql = 'SELECT * FROM `View_PetInformation`'
+        cursor.execute(sql)
+        result = cursor.fetchall()
 
-def push_data():
+        df = pd.DataFrame(result)
+        df.to_csv('./data/tmp_pets.csv', index=False)
+        print(result[0])
+
+def push_data(data: dict):
     print('Pushing data...')
     r_client = connect_redis()
-    r_client.set('test', 'test')
-    print(r_client.get('test'))
+    for k, v in data.items():
+        r_client.set(k, v)
+    # r_client.set('test', 'test')
+    # print(r_client.get('test'))
 
 if __name__ == '__main__':
     fetch_data()
