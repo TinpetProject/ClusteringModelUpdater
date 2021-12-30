@@ -6,8 +6,8 @@ DB_CHARSET = 'utf8mb4'
 DB_NAME = 'tinpet' 
 
 # REDIS config
-# REDIS_HOST = 'redis'
-REDIS_HOST = 'localhost'
+REDIS_HOST = 'redis'
+# REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_USER = 'tinpet'
 REDIS_PASSWORD = 'duy123'

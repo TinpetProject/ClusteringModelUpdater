@@ -18,7 +18,7 @@ def main():
     start_time = time.time()
     first_time = True
     days_updater = 24 * 60 * 60 * 5 # 5 days in seconds
-    days_updater = 5
+    # days_updater = 5
     while (True):
         ellapse_time = time.time() - start_time
         if ellapse_time > days_updater or first_time:
@@ -49,10 +49,8 @@ def test_dataset():
 
 if __name__ == '__main__':
     # test_data()
-    # main()
+    main()
     # train()
     # preprocess_data()
-    dat = train_model()
-    # for k, v in dat.items():
-    #     print(k)
-    print(len(dat.keys()))
+    # dat = train_model()
+    # push_data(dat)

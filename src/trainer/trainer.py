@@ -21,11 +21,11 @@ def train_model():
         cluster_0 = data[preds == 0]
         cluster_1 = data[preds == 1]
 
-        cluter_0_male = cluster_0[cluster_0['gender']==1]['petID']
-        cluter_0_female = cluster_0[cluster_0['gender']==0]['petID']
+        cluter_0_male = cluster_0[cluster_0['gender']==1]['petID'].tolist()
+        cluter_0_female = cluster_0[cluster_0['gender']==0]['petID'].tolist()
 
-        cluter_1_male = cluster_1[cluster_1['gender'] == 1]['petID']
-        cluter_1_female = cluster_1[cluster_1['gender'] == 0]['petID']
+        cluter_1_male = cluster_1[cluster_1['gender'] == 1]['petID'].tolist()
+        cluter_1_female = cluster_1[cluster_1['gender'] == 0]['petID'].tolist()
 
         for _, pet in cluster_0.iterrows():
             if pet['gender'] == 0:
