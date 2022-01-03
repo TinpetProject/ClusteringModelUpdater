@@ -32,7 +32,7 @@ def fetch_data():
     conn = connect_mysql()
 
     with conn.cursor() as cursor:
-        sql = 'SELECT * FROM `View_PetInformation`'
+        sql = 'SELECT * FROM `View_PetInformation` WHERE name != \'default\''
         cursor.execute(sql)
         result = cursor.fetchall()
 

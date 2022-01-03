@@ -25,7 +25,7 @@ def redis_listener():
 def main():
     start_time = time.time()
     first_time = True
-    days_updater = 24 * 60 * 60 * 5 # 5 days in seconds
+    days_updater = 60 * 60 # 1 hour in seconds
     # days_updater = 5
     
     print('Starting...')
